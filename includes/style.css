@@ -1,0 +1,16 @@
+/*Estilo Cabeçalho*/
+.jumbotron
+{
+	margin-bottom: 0;
+}
+
+/*Estilo Menu de Navegação*/
+.navbar .navbar-nav .nav-item
+{
+	margin-right: 1.2em;
+}
+.navbar .navbar-nav .nav-item a:hover,
+.navbar .navbar-nav .nav-item a:focus
+{
+	color: white;
+}
