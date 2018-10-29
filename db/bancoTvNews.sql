@@ -1,5 +1,3 @@
-CREATE DATABASE tvnews;
-
 CREATE TABLE Movie(
 	idMovie INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50) NOT NULL,
@@ -46,6 +44,6 @@ CREATE TABLE User_TVShow(
 	idTVShow INT NOT NULL,
 	watchList BOOLEAN,
 	rating INT NOT NULL, 
-	CONSTRAINT User_Movies_id_fk1 FOREIGN KEY (idUser) REFERENCES User(idUser),
-	CONSTRAINT User_Movies_id_fk2 FOREIGN KEY (idTVShow) REFERENCES idTVShow(idTVShow)
+	CONSTRAINT User_TVShow_id_fk1 FOREIGN KEY (idUser) REFERENCES User(idUser),
+	CONSTRAINT User_TVShow_id_fk2 FOREIGN KEY (idTVShow) REFERENCES idTVShow(idTVShow)
 );
