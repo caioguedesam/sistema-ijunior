@@ -44,40 +44,62 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Filmes</h2>
       <br>
       <img src="assets/filmesicon.png">
-      <h3>Filmes mais assistidos</h3>
-      <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
-      </ul>
-      <h3>Filmes mais desejados</h3>
-      <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
-      </ul>
+      <h2>Filmes</h2>
       <br>
+      <!--Botão 1-->
+      <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalFilme">Registrar Filme</button>
+      <!--Modal para registro de FILMES-->
+      <div class="modal" tabindex="-1" role="dialog" id="modalFilme">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrar Filme</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>A FAZER</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Registrar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Fim do Modal-->
     </div>
     <div class="col-sm-6">
-      <h2>Séries</h2>
       <br>
       <img src="assets/seriesicon.png">
-      <h3>Temporadas mais assistidas</h3>
-      <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
-      </ul>
-      <h3>Temporadas mais desejadas</h3>
-      <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
-      </ul>
+      <h2>Séries</h2>
       <br>
+      <!--Botão 2-->
+      <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalSerie">Registrar Série (Temporada)</button>
+      <!--Modal para registro de SÉRIES-->
+      <div class="modal" tabindex="-1" role="dialog" id="modalSerie">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrar Série</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>A FAZER</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Registrar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Fim do Modal-->
     </div>
   </div>
 </div>
@@ -85,6 +107,8 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>TVNews Rodapé</p>
 </div>
+
+<div class="bg-modal"></div>
 
 </body>
 <!--

@@ -39,14 +39,12 @@ body
 .navbar
 {
 	background-color: #740001;
+	font-family: BebasBold, Helvetica, serif;
+	font-size: 24px;
 }
 .navbar .navbar-nav .nav-item
 {
 	margin-right: 1.2em;
-}
-.navbar .navbar .nav-item a
-{
-	font-family: BebasBold, Helvetica, serif;
 }
 .navbar .navbar-nav .nav-item a:hover,
 .navbar .navbar-nav .nav-item a:focus
@@ -76,6 +74,12 @@ body
 	font-family: Pacifico, Helvetica, serif;
 	font-size: 64px;
 }
+/* Estilo Subtítulos das páginas FILMES/SÉRIES */
+.container .row .col h2
+{
+	padding-top: 120px;
+	padding-right: 900px;
+}
 /*Estilo Texto da página principal (Subtítulos Menores)*/
 .container .row h3
 {
@@ -90,3 +94,32 @@ body
 {
 	list-style-type: decimal;
 }
+
+/*Estilo Botões na página (Registro de Filmes/Séries)*/
+.container .row button
+{
+	margin-left: 40px;
+}
+/* Estilo Botões no Modal (Registro de Filmes/Séries) */
+.modal .modal-footer button
+{
+	margin-left: 10px;
+}
+
+/* Estilos das Tabelas de Filmes e Séries */
+.table > thead > tr > th
+{
+	border: hidden;
+	font-family: BebasNeue;
+	font-size: 20px;
+}
+.table > tbody > tr > td, .table > tbody > tr > th
+{
+	border: hidden;
+}
+.table #tablebtn
+{
+	margin: 0px;
+}
+
+/* PRECISA ORGANIZAR ESSA BAGUNÇA QUE EU FIZ! -Caio */
