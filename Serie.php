@@ -57,7 +57,7 @@
 		}
 
 		function setGenre($genre){
-			$this->gente = $genre;
+			$this->genre = $genre;
         }
         
         function getExibitionYear(){

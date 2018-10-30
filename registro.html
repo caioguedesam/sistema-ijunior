@@ -68,7 +68,7 @@
                 <input type="number" name="runningTime"placeholder="Duração"><br>
                 <input type="text" name="genre" placeholder="Gênero"><br>
                 <input type="text" name="director" placeholder="Diretor"><br>
-                <input type="text" name="studio "placeholder="Estúdio"><br>
+                <input type="text" name="studio"placeholder="Estúdio"><br>
 
                 <div class="modal-footer">
                 <input type="submit" value="Registrar" class="btn btn-success">
@@ -101,13 +101,15 @@
             <div class="modal-body">
               <form action="SerieHelper.php?acao=novo" method="post">
                 
-                <input type="text" placeholder="Nome"><br>
-                <input type="number" placeholder="Temporada"><br>
-                <input type="number" placeholder="Nº de Episódios"><br>
-                <input type="text" placeholder="Gênero"><br>
-                <input type="number" placeholder="Ano de Exibição"><br>
-                <input type="text" placeholder="Criador"><br>
-                <input type="text" placeholder="Canal"><br>
+                <input type="text" name="name" placeholder="Nome"><br>
+                <input type="number" name="season" placeholder="Temporada"><br>
+                <input type="number" name="episodes" placeholder="Nº de Episódios"><br>
+                <input type="text" name="genre" placeholder="Gênero"><br>
+                <input type="number" name="exibitionYear" placeholder="Ano de Exibição"><br>
+                <input type="text" name="creator" placeholder="Criador"><br>
+                <input type="text" name="channel" placeholder="Canal"><br>
+                <input type="radio" name="status" value="0"> Em Exibição<br>
+                <input type="radio" name="status" value="1"> Concluída<br>
 
                 <div class="modal-footer">
                 <input type="submit" value="Registrar" class="btn btn-success">
