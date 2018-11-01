@@ -8,6 +8,7 @@
 		private $genre;
 		private $director;
 		private $studio;
+		private $status;
 
 		function __construct(){
 			$this->setIdMovie(0);
@@ -17,6 +18,7 @@
 			$this->setGenre("");
 			$this->setDirector("");
 			$this->setStudio("");
+			$this->setStatus(1);
 		}
 
 		function getIdMovie(){
@@ -70,5 +72,13 @@
 
 		function setStudio($studio){
 			$this->studio = $studio;
+		}
+
+		function getStatus(){
+			return $this->status;
+		}
+
+		function setStatus($status){
+			$this->status = $status;
 		}
 	}

@@ -54,31 +54,35 @@
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 			return $situacao;
-		}
+		}*/
 
 		function listar(){
-			$clientes = array();
+			$filmes = array();
 			try{
 				$c = $this->conectar();
-				$query = "select * from tbcliente";
+				$query = "select * from Movie";
 				$resultado = $c->query($query);
 				$c->close();
 				while($registro = mysqli_fetch_assoc($resultado)) {
-					$cliente = new Cliente();
-					$cliente->setIdcliente($registro['cdcliente']);
-					$cliente->setNmcliente($registro['nmcliente']);
-					$cliente->setCpf($registro['cpfcliente']);
-					$cliente->setTelefone($registro['telcliente']);
-					array_push($clientes, $cliente);
+					$filme = new Filme();
+					$filme->setIdMovie($registro['idMovie']);
+					$filme->setName($registro['name']);
+					$filme->setReleaseYear($registro['releaseYear']);
+					$filme->setRunningTime($registro['runningTime']);
+					$filme->setGenre($registro['genre']);
+					$filme->setDirector($registro['director']);
+					$filme->setStudio($registro['studio']);
+					$filme->setStatus($registro['active']);
+					array_push($filmes, $filme);
 				}
 				$resultado->close();
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
-			return $clientes;
+			return $filmes;
 		}
 
-		function buscarPorId($codigo){
+		/*function buscarPorId($codigo){
 			$cliente = new Cliente();
 			try{
 				$c = $this->conectar();
