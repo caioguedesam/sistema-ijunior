@@ -28,6 +28,34 @@
 			return $situacao;
 		}
 
+		function listar(){
+			$series = array();
+			try{
+				$c = $this->conectar();
+				$query = "select * from TVShow";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$serie = new Serie();
+					$serie->setIdTvShow($registro['idTVShow']);
+					$serie->setName($registro['name']);
+					$serie->setSeason($registro['season']);
+					$serie->setEpisodes($registro['episodes']);
+					$serie->setGenre($registro['genre']);
+					$serie->setExibitionYear($registro['exibitionYear']);
+					$serie->setCreator($registro['creator']);
+					$serie->setChannel($registro['channel']);
+					$serie->setStatus($registro['status']);
+					$serie->setActive($registro['active']);
+					array_push($series, $serie);
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $series;
+		}
+
 		/*function alterar($cliente){
 			$situacao = TRUE;
 			$c = $this->conectar();
@@ -54,28 +82,6 @@
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 			return $situacao;
-		}
-
-		function listar(){
-			$clientes = array();
-			try{
-				$c = $this->conectar();
-				$query = "select * from tbcliente";
-				$resultado = $c->query($query);
-				$c->close();
-				while($registro = mysqli_fetch_assoc($resultado)) {
-					$cliente = new Cliente();
-					$cliente->setIdcliente($registro['cdcliente']);
-					$cliente->setNmcliente($registro['nmcliente']);
-					$cliente->setCpf($registro['cpfcliente']);
-					$cliente->setTelefone($registro['telcliente']);
-					array_push($clientes, $cliente);
-				}
-				$resultado->close();
-			}catch(Exception $ex){
-				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
-			}
-			return $clientes;
 		}
 
 		function buscarPorId($codigo){

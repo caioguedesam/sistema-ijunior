@@ -9,7 +9,8 @@
         private $exibitionYear;
 		private $creator;
         private $channel;
-        private $status;
+		private $status;
+		private $active;
 
 		function __construct(){
 			$this->setIdTVShow(0);
@@ -20,7 +21,8 @@
             $this->setExibitionYear(2000);
 			$this->setCreator("");
             $this->setChannel("");
-            $this->setStatus(TRUE);
+			$this->setStatus(TRUE);
+			$this->setActive(1);
 		}
 
 		function getIdTVShow(){
@@ -89,5 +91,13 @@
 
 		function setStatus($status){
 			$this->status = boolval($status);
+		}
+
+		function getActive(){
+			return $this->active;
+		}
+
+		function setActive($active){
+			$this->active = $active;
 		}
 	}
