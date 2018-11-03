@@ -28,11 +28,11 @@
 			return $situacao;
 		}
 
-		/*function alterar($cliente){
+		function alterar($movie){
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-				$query = "UPDATE tbcliente SET nmcliente='{$cliente->getNmcliente()}', cpfcliente='{$cliente->getCpf()}', telcliente='{$cliente->getTelefone()}' WHERE cdcliente='{$cliente->getIdCliente()}'";
+				$query = "UPDATE Movie SET name='{$movie->getName()}', releaseYear='{$movie->getReleaseYear()}', runningTime='{$movie->getRunningTime()}', genre='{$movie->getGenre()}', director='{$movie->getDirector()}', studio='{$movie->getStudio()}' WHERE idMovie='{$movie->getIdMovie()}'";
 				$c->query($query);
 				$c->close();
 			}catch(Exception $ex){
@@ -42,11 +42,11 @@
 			return $situacao;
 		}
 
-		function excluir($idcliente){
+		function excluir($movie){
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-					$query = "delete from tbcliente where cdcliente = {$idcliente}";
+				$query = "UPDATE Movie SET action='{0}' WHERE idMovie='{$movie->getIdMovie()}'";
 					$c->query($query);
 					$c->close();
 			}catch(Exception $ex){
@@ -54,7 +54,7 @@
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 			return $situacao;
-		}*/
+		}
 
 		function listar(){
 			$filmes = array();
@@ -82,24 +82,28 @@
 			return $filmes;
 		}
 
-		/*function buscarPorId($codigo){
-			$cliente = new Cliente();
+		function buscarPorId($codigo){
+			$movie = new Filme();
 			try{
 				$c = $this->conectar();
-				$query = "select * from tbcliente where cdcliente = {$codigo}";
+				$query = "select * from Movie where idMovie = {$codigo}";
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
-				$cliente->setIdCliente($registro['cdcliente']);
-				$cliente->setNmcliente($registro['nmcliente']);
-				$cliente->setCpf($registro['cpfcliente']);
-				$cliente->setTelefone($registro['telcliente']);
+				$movie->setIdCliente($registro['idMovie']);
+				$movie->setName($registro['name']);
+				$movie->setReleaseYear($registro['releaseYear']);
+				$movie->setRunningTime($registro['runningTime']);
+				$movie->setGenre($registro['genre']);
+				$movie->setDirector($registro['director']);
+				$movie->setStudio($registro['studio']);
+				$movie->setStatus($registro['active']);
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 
-			return $cliente;
-        }*/
+			return $movie;
+        }
 
 	}
 
