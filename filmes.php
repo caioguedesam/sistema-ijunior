@@ -45,7 +45,8 @@ $filmes = $banco_filme->listar();
             <th scope="col">Gênero</th>
             <th scope="col">Diretor</th>
             <th scope="col">Estúdio</th>
-            <th scope="col">Opções</th>
+            <th scope="col">Opção 1</th>
+            <th scope="col">Opção 2</th>
           </tr>
         </thead>
         <tbody>
@@ -61,8 +62,20 @@ $filmes = $banco_filme->listar();
             <td><?php echo $filmes->getGenre()?></td>
             <td><?php echo $filmes->getDirector()?></td>
             <td><?php echo $filmes->getStudio()?></td>
-            <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
-            <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
+            <td>
+              <form action="editarFilme.php" method="post">
+                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIdMovie()?>" />
+                <button type="submit" class="btn btn-outline-danger" id="editBtn">Editar</button>
+              </form>
+            </td>
+            
+            <td>
+              <!-- Colocar uma verificação!!! -->
+              <form action="FilmeHelper.php?acao=excluir" method="post">
+                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIDMovie()?>" />
+                <button type="submit" class="btn btn-outline-danger" id="deleteBtn">Excluir</button>
+              </form>
+            </td>
           </tr>
           <?php
             }

@@ -27,12 +27,14 @@
 			$banco_movie = new FilmeDAO();
 			$movie = new Filme();
 			
+			$movie->setIdMovie($_POST["idMovie"]);
 			$movie->setName($_POST["name"]);
             $movie->setReleaseYear($_POST["releaseYear"]);
             $movie->setRunningTime($_POST["runningTime"]);
             $movie->setGenre($_POST["genre"]);
             $movie->setDirector($_POST["director"]);
             $movie->setStudio($_POST["studio"]);
+			
 			
 			if($banco_movie->alterar($movie)){
 				echo "<script>alert('Filme alterado com sucesso!');</script>";
@@ -41,18 +43,18 @@
 			}
             echo "<script>location.href='filmes.php';</script>";
 
-		/*case 'excluir':
-			$banco_cliente = new ClienteDAO();
+		case 'excluir':
+			$banco_movie = new FilmeDAO();
 			
-			$idcliente = $_POST["idcliente"];
+			$idMovie = $_POST["idMovie"];
 			
-			if($banco_cliente->excluir($idcliente)){
+			if($banco_movie->excluir($idMovie)){
 				echo "<script>alert('Registro excluído com sucesso!');</script>";
 			}else{
-				echo "<script>alert('Erro ao excluir o Sucesso.');</script>";
+				echo "<script>alert('Erro ao excluir o Filme.');</script>";
 			}
-			echo "<script>location.href='listarClientes.php';</script>";
-		break;*/
+			echo "<script>location.href='filmes.php';</script>";
+		break;
 
 	}
 

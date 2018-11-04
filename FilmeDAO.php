@@ -46,7 +46,7 @@
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-				$query = "UPDATE Movie SET action='{0}' WHERE idMovie='{$movie->getIdMovie()}'";
+				$query = "UPDATE Movie SET active='{0}' WHERE idMovie='{$movie}'";
 					$c->query($query);
 					$c->close();
 			}catch(Exception $ex){
@@ -90,7 +90,7 @@
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
-				$movie->setIdCliente($registro['idMovie']);
+				$movie->setIdMovie($registro['idMovie']);
 				$movie->setName($registro['name']);
 				$movie->setReleaseYear($registro['releaseYear']);
 				$movie->setRunningTime($registro['runningTime']);
