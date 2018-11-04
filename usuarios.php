@@ -1,8 +1,9 @@
 <?php
-require_once 'Filme.php';
-require_once 'FilmeDAO.php';
-$banco_filme = new filmeDAO();
-$filmes = $banco_filme->listar();
+//Acho que o erro que nã oestá abrindo usuarios.php tem a ver com isso aqui (1/2, o outro está no userDAO.php)
+require_once 'User.php';
+require_once 'UserDAO.php';
+$banco_user = new UserDAO();
+$users = $banco_user->listar();
 
 ?>
 
@@ -21,7 +22,7 @@ $filmes = $banco_filme->listar();
 <body>
 
 <div class="jumbotron text-center">
-  <h1>TVNews</h1> 
+  <h1>TVNews - Portal de Filmes</h1> 
 </div>
 
 <!-- Inclui o menu -->
@@ -31,43 +32,58 @@ $filmes = $banco_filme->listar();
   <div class="row">
     <div class="col">
       <br>
-      <img src="assets/filmesicon.png">
-      <h2>Filmes</h2>
+      <img src="assets/TVNews.png">
+      <h2>Usuários</h2>
       <br>
+      <!--Botão 1-->
+      <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalUser">Registrar Usuário</button>
+      <!--Modal para registro de USUÁRIOS-->
+      <div class="modal" tabindex="-1" role="dialog" id="modalUser">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrar Usuário</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="UserHelper.php?acao=novo" method="post">
+                
+                <input type="text" name="name" placeholder="Nome"><br>
+
+                <div class="modal-footer">
+                <input type="submit" value="Registrar" class="btn btn-success">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--Tabela de Filmes-->
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nome</th>
-            <th scope="col">Ano de Lançamento</th>
-            <th scope="col">Duração</th>
-            <th scope="col">Gênero</th>
-            <th scope="col">Diretor</th>
-            <th scope="col">Estúdio</th>
             <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>
           <?php
-					foreach ($filmes as $filmes) {
-            if ($filmes->getStatus()) {
-				  ?>
+          foreach ($users as $users) {
+            if ($users->getIdUser()) {
+          ?>
           <tr>
-            <th scope="row"><?php echo $filmes->getIdMovie()?></th>
-            <td><?php echo $filmes->getName()?></td>
-            <td><?php echo $filmes->getReleaseYear()?></td>
-            <td><?php echo $filmes->getRunningTime() . " min"?></td>
-            <td><?php echo $filmes->getGenre()?></td>
-            <td><?php echo $filmes->getDirector()?></td>
-            <td><?php echo $filmes->getStudio()?></td>
+            <th scope="row"><?php echo $users->getIdUser()?></th>
+            <td><?php echo $users->getName()?></td>
             <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
             <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
           </tr>
           <?php
             }
-					}
-				  ?>
+          }
+          ?>
         </tbody>
       </table>
       <!-- Fim da Tabela TESTE -->
@@ -76,7 +92,7 @@ $filmes = $banco_filme->listar();
 </div>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <p>TVNews Rodapé</p>
+  <p>TVNews - Todos os Direitos Reservados</p>
 </div>
 
 <div class="bg-modal"></div>

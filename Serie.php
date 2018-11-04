@@ -100,4 +100,15 @@
 		function setActive($active){
 			$this->active = $active;
 		}
+		function printStatus()
+		{
+			if($this->status == 1)
+			{
+				echo "Concluída";
+			}
+			else
+			{
+				echo "Em exibição";
+			}
+		}
 	}

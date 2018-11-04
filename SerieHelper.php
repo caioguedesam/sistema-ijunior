@@ -22,7 +22,7 @@
 			}else{
 				echo "<script>alert('Erro ao salvar a série!.');</script>";
 			}
-			echo "<script>location.href='registro.html';</script>";
+			echo "<script>location.href='registro.php';</script>";
 		break;
 
 		/*case 'excluir':

@@ -18,9 +18,9 @@
 			if($banco_movie->novo($movie)){
 				echo "<script>alert('Filme salvo com sucesso!');</script>";
 			}else{
-				echo "<script>alert('Erro ao salvar o Filme!.');</script>";
+				echo "<script>alert('Erro ao salvar o Filme!');</script>";
 			}
-			echo "<script>location.href='registro.html';</script>";
+			echo "<script>location.href='registro.php';</script>";
 		break;
 
 		case 'alterar':
@@ -37,7 +37,7 @@
 			if($banco_movie->alterar($movie)){
 				echo "<script>alert('Filme alterado com sucesso!');</script>";
 			}else{
-				echo "<script>alert('Erro ao alterar o Filme.');</script>";
+				echo "<script>alert('Erro ao alterar o Filme!');</script>";
 			}
             echo "<script>location.href='filmes.php';</script>";
 

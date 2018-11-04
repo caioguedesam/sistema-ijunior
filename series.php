@@ -1,8 +1,8 @@
 <?php
-require_once 'Filme.php';
-require_once 'FilmeDAO.php';
-$banco_filme = new filmeDAO();
-$filmes = $banco_filme->listar();
+require_once 'Serie.php';
+require_once 'SerieDAO.php';
+$banco_serie = new serieDAO();
+$series = $banco_serie->listar();
 
 ?>
 
@@ -31,8 +31,8 @@ $filmes = $banco_filme->listar();
   <div class="row">
     <div class="col">
       <br>
-      <img src="assets/filmesicon.png">
-      <h2>Filmes</h2>
+      <img src="assets/seriesicon.png">
+      <h2>Séries</h2>
       <br>
       <!--Tabela de Filmes-->
       <table class="table table-hover">
@@ -40,34 +40,38 @@ $filmes = $banco_filme->listar();
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
-            <th scope="col">Ano de Lançamento</th>
-            <th scope="col">Duração</th>
+            <th scope="col">Temporada</th>
+            <th scope="col">Número de Ep.</th>
             <th scope="col">Gênero</th>
-            <th scope="col">Diretor</th>
-            <th scope="col">Estúdio</th>
+            <th scope="col">Ano de Exib.</th>
+            <th scope="col">Criador</th>
+            <th scope="col">Canal</th>
+            <th scope="col">Status</th>
             <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>
           <?php
-					foreach ($filmes as $filmes) {
-            if ($filmes->getStatus()) {
-				  ?>
+          foreach ($series as $series) {
+            if ($series->getActive()) {
+          ?>
           <tr>
-            <th scope="row"><?php echo $filmes->getIdMovie()?></th>
-            <td><?php echo $filmes->getName()?></td>
-            <td><?php echo $filmes->getReleaseYear()?></td>
-            <td><?php echo $filmes->getRunningTime() . " min"?></td>
-            <td><?php echo $filmes->getGenre()?></td>
-            <td><?php echo $filmes->getDirector()?></td>
-            <td><?php echo $filmes->getStudio()?></td>
+            <th scope="row"><?php echo $series->getIdTVShow()?></th>
+            <td><?php echo $series->getName()?></td>
+            <td><?php echo $series->getSeason()?></td>
+            <td><?php echo $series->getEpisodes() . " min"?></td>
+            <td><?php echo $series->getGenre()?></td>
+            <td><?php echo $series->getExibitionYear()?></td>
+            <td><?php echo $series->getCreator()?></td>
+            <td><?php echo $series->getChannel()?></td>
+            <td><?php echo $series->printStatus()?></td>
             <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
             <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
           </tr>
           <?php
             }
-					}
-				  ?>
+          }
+          ?>
         </tbody>
       </table>
       <!-- Fim da Tabela TESTE -->

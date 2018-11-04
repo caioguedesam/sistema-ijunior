@@ -12,7 +12,7 @@
 		function getIdUser(){
 			return $this->idUser;
 		}
-		function setIdUSer($idUser){
+		function setIdUser($idUser){
 			$this->idUser = intval($idUser);
 		}
 

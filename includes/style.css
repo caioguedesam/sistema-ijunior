@@ -33,6 +33,9 @@ body
 .jumbotron
 {
 	margin-bottom: 0;
+	background-color: #450000;
+	color: white;
+	font-family: BebasBold;
 }
 
 /*Estilo Menu de Navegação*/

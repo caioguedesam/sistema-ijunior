@@ -1,5 +1,5 @@
 <?php
-	class UserDao{
+	class UserDAO{
 		
 
 		public function conectar(){
@@ -16,16 +16,37 @@
 			$situacao = TRUE;
 			try{
 				$c = $this->conectar();
-				$query = "INSERT INTO User (id,name, ) values ('{$user->getIdUser()}', '{$user->getName()}', '1')";
+				$query = "INSERT INTO User (name) values ('{$user->getName()}')";
 				$c->query($query);
 				$codigo = $c->insert_id;
-                $serie->setIdTVShow($codigo);
+                $user->setIdUser($codigo);
 				$c->close();
 			}catch(Exception $ex){
 				$situacao = FALSE;
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 			return $situacao;
+		}
+
+		//Acho que o erro que não está abrindo o usuarios.php tem a ver com isso aqui! (2/2)
+		function listar(){
+			$users = array();
+			try{
+				$c = $this->conectar();
+				$query = "select * from User";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$user = new User();
+					$serie->setIdUser($registro['idUser']);
+					$serie->setName($registro['name']);
+					array_push($users, $user);
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $users;
 		}
 
 		/*function alterar($cliente){
