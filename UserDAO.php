@@ -27,8 +27,7 @@
 			}
 			return $situacao;
 		}
-
-		//Acho que o erro que não está abrindo o usuarios.php tem a ver com isso aqui! (2/2)
+		
 		function listar(){
 			$users = array();
 			try{
@@ -38,8 +37,8 @@
 				$c->close();
 				while($registro = mysqli_fetch_assoc($resultado)) {
 					$user = new User();
-					$serie->setIdUser($registro['idUser']);
-					$serie->setName($registro['name']);
+					$user->setIdUser($registro['idUser']);
+					$user->setName($registro['name']);
 					array_push($users, $user);
 				}
 				$resultado->close();
