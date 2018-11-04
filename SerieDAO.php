@@ -37,7 +37,7 @@
 				$c->close();
 				while($registro = mysqli_fetch_assoc($resultado)) {
 					$serie = new Serie();
-					$serie->setIdTvShow($registro['idTVShow']);
+					$serie->setIdTVShow($registro['idTVShow']);
 					$serie->setName($registro['name']);
 					$serie->setSeason($registro['season']);
 					$serie->setEpisodes($registro['episodes']);
@@ -56,11 +56,11 @@
 			return $series;
 		}
 
-		/*function alterar($cliente){
+		function alterar($serie){
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-				$query = "UPDATE tbcliente SET nmcliente='{$cliente->getNmcliente()}', cpfcliente='{$cliente->getCpf()}', telcliente='{$cliente->getTelefone()}' WHERE cdcliente='{$cliente->getIdCliente()}'";
+				$query = "UPDATE TVShow SET name='{$serie->getName()}', season='{$serie->getSeason()}', episodes='{$serie->getEpisodes()}', genre='{$serie->getGenre()}', exibitionYear='{$serie->getExibitionYear()}', creator='{$serie->getCreator()}', channel='{$serie->getChannel()}', status='{$serie->getStatus()}' WHERE idTVShow='{$serie->getIdTVShow()}'";
 				$c->query($query);
 				$c->close();
 			}catch(Exception $ex){
@@ -70,11 +70,11 @@
 			return $situacao;
 		}
 
-		function excluir($idcliente){
+		function excluir($serie){
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-					$query = "delete from tbcliente where cdcliente = {$idcliente}";
+				$query = "UPDATE TVShow SET active='{0}' WHERE idTVShow='{$serie}'";
 					$c->query($query);
 					$c->close();
 			}catch(Exception $ex){
@@ -85,23 +85,29 @@
 		}
 
 		function buscarPorId($codigo){
-			$cliente = new Cliente();
+			$serie = new Serie();
 			try{
 				$c = $this->conectar();
-				$query = "select * from tbcliente where cdcliente = {$codigo}";
+				$query = "select * from TVShow where idTVShow = {$codigo}";
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
-				$cliente->setIdCliente($registro['cdcliente']);
-				$cliente->setNmcliente($registro['nmcliente']);
-				$cliente->setCpf($registro['cpfcliente']);
-				$cliente->setTelefone($registro['telcliente']);
+				$serie->setIdTVShow($registro['idTVShow']);
+				$serie->setName($registro['name']);
+				$serie->setSeason($registro['season']);
+				$serie->setEpisodes($registro['episodes']);
+				$serie->setGenre($registro['genre']);
+				$serie->setExibitionYear($registro['exibitionYear']);
+				$serie->setCreator($registro['creator']);
+				$serie->setChannel($registro['channel']);
+				$serie->setStatus($registro['status']);
+				$serie->setActive($registro['active']);
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 
-			return $cliente;
-        }*/
+			return $serie;
+        }
 
 	}
 

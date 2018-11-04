@@ -47,7 +47,8 @@ $series = $banco_serie->listar();
             <th scope="col">Criador</th>
             <th scope="col">Canal</th>
             <th scope="col">Status</th>
-            <th scope="col">Opções</th>
+            <th scope="col">Opção 1</th>
+            <th scope="col">Opção 2</th>
           </tr>
         </thead>
         <tbody>
@@ -65,8 +66,19 @@ $series = $banco_serie->listar();
             <td><?php echo $series->getCreator()?></td>
             <td><?php echo $series->getChannel()?></td>
             <td><?php echo $series->printStatus()?></td>
-            <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
-            <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
+            <td>
+              <form action="editarSerie.php" method="post">
+                <input type="hidden" name="idTVShow" value="<?php echo $series->getIdTVShow()?>" />
+                <button type="submit" class="btn btn-outline-danger" id="editBtn">Editar</button>
+              </form>
+            </td>
+            <td>
+              <!-- Colocar uma verificação!!! -->
+              <form action="SerieHelper.php?acao=excluir" method="post">
+                <input type="hidden" name="idTVShow" value="<?php echo $series->getIdTVShow()?>" />
+                <button type="submit" class="btn btn-outline-danger" id="deleteBtn">Excluir</button>
+              </form>
+            </td>
           </tr>
           <?php
             }

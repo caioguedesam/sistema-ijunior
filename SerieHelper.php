@@ -25,36 +25,41 @@
 			echo "<script>location.href='registro.php';</script>";
 		break;
 
-		/*case 'excluir':
-			$banco_cliente = new ClienteDAO();
+		case 'excluir':
+			$banco_serie = new serieDAO();
 			
-			$idcliente = $_POST["idcliente"];
+			$idTVShow = $_POST["idTVShow"];
 			
-			if($banco_cliente->excluir($idcliente)){
+			if($banco_serie->excluir($idTVShow)){
 				echo "<script>alert('Registro excluído com sucesso!');</script>";
 			}else{
-				echo "<script>alert('Erro ao excluir o Sucesso.');</script>";
+				echo "<script>alert('Erro ao excluir a Série.');</script>";
 			}
-			echo "<script>location.href='listarClientes.php';</script>";
+			echo "<script>location.href='series.php';</script>";
 		break;
 		
+
 		case 'alterar':
-			$banco_cliente = new ClienteDAO();
-			$cliente = new Cliente();
+			$banco_serie = new SerieDAO();
+			$serie = new Serie();
 			
-			$cliente->setIdCliente($_POST["idcliente"]);
-			$cliente->setNmcliente($_POST["nmcliente"]);
-			$cliente->setCpf($_POST["cpfcliente"]);
-			$cliente->setTelefone($_POST["telcliente"]);
+			$serie->setIdTVShow($_POST["idTVShow"]);
+			$serie->setName($_POST["name"]);
+            $serie->setSeason($_POST["season"]);
+            $serie->setEpisodes($_POST["episodes"]);
+			$serie->setGenre($_POST["genre"]);
+			$serie->setExibitionYear($_POST["exibitionYear"]);
+            $serie->setCreator($_POST["creator"]);
+			$serie->setChannel($_POST["channel"]);
+			$serie->setStatus($_POST["status"]);
 			
-			if($banco_cliente->alterar($cliente)){
-				echo "<script>alert('Cliente alterado com sucesso!');</script>";
+			if($banco_serie->alterar($serie)){
+				echo "<script>alert('Série alterado com sucesso!');</script>";
 			}else{
-				echo "<script>alert('Erro ao alterar o Cliente.');</script>";
+				echo "<script>alert('Erro ao alterar o Série.');</script>";
 			}
-            echo "<script>location.href='listarClientes.php';</script>";
+            echo "<script>location.href='series.php';</script>";
             
-            */
 	}
 
 ?>
