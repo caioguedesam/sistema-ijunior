@@ -80,12 +80,29 @@
 			$user = new User();
 			try{
 				$c = $this->conectar();
-				$query = "select * from Usuario where idUsuario = {$codigo}";
+				$query = "select * from User where idUsuario = {$codigo}";
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
 				$user->setidUser($registro['idUser']);
-				$user->setName($registro['nameUser']);
+				$user->setName($registro['name']);
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+
+			return $user;
+		}
+		
+		function buscarPorNome($name){
+			$user = new User();
+			try{
+				$c = $this->conectar();
+				$query = "select * from User where name = {$name}";
+				$resultado = $c->query($query);
+				$c->close();
+				$registro = mysqli_fetch_assoc($resultado);
+				$user->setidUser($registro['idUser']);
+				$user->setName($registro['name']);
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}

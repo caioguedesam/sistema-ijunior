@@ -1,7 +1,8 @@
 <?php
     require_once 'Filme.php';
     require_once 'FilmeDAO.php';
-    require_once 'User.php';
+	require_once 'User.php';
+	require_once 'UserDAO.php';
 	$acao = $_GET["acao"];
 	
 	switch($acao){
