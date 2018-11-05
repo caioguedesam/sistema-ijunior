@@ -42,6 +42,7 @@
 				echo "<script>alert('Erro ao alterar o Filme!');</script>";
 			}
             echo "<script>location.href='filmes.php';</script>";
+        break;
 
 		case 'excluir':
 			$banco_movie = new FilmeDAO();
