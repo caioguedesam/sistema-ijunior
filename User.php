@@ -2,25 +2,25 @@
 
 	class User{
 		private $idUser;
-		private $name;
+		private $nameUser;
 
 		function __construct(){
 			$this->setIdUser(0);
-			$this->setName("");
+			$this->setNameUser("");
 		}
 
 		function getIdUser(){
 			return $this->idUser;
 		}
-		function setIdUser($idUser){
+		function setIdUSer($idUser){
 			$this->idUser = intval($idUser);
 		}
 
-		function getName(){
+		function getNameUser(){
 			return $this->name;
 		}
 
-		function setName($name){
-			$this->name = $name;
+		function setNameUser($name){
+			$this->nameUser = $name;
 		}
 	}

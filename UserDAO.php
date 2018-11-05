@@ -1,5 +1,5 @@
 <?php
-	class UserDAO{
+	class UserDao{
 		
 
 		public function conectar(){
@@ -16,7 +16,7 @@
 			$situacao = TRUE;
 			try{
 				$c = $this->conectar();
-				$query = "INSERT INTO User (name) values ('{$user->getName()}')";
+				$query = "INSERT INTO User (name) values ({$user->getNameUser()}', '1')";
 				$c->query($query);
 				$codigo = $c->insert_id;
                 $user->setIdUser($codigo);
@@ -27,32 +27,12 @@
 			}
 			return $situacao;
 		}
-		
-		function listar(){
-			$users = array();
-			try{
-				$c = $this->conectar();
-				$query = "select * from User";
-				$resultado = $c->query($query);
-				$c->close();
-				while($registro = mysqli_fetch_assoc($resultado)) {
-					$user = new User();
-					$user->setIdUser($registro['idUser']);
-					$user->setName($registro['name']);
-					array_push($users, $user);
-				}
-				$resultado->close();
-			}catch(Exception $ex){
-				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
-			}
-			return $users;
-		}
 
-		/*function alterar($cliente){
+		function alterar($user){
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-				$query = "UPDATE tbcliente SET nmcliente='{$cliente->getNmcliente()}', cpfcliente='{$cliente->getCpf()}', telcliente='{$cliente->getTelefone()}' WHERE cdcliente='{$cliente->getIdCliente()}'";
+				$query = "UPDATE User SET name='{$user->getname()}', WHERE idUser='{$user->getId()}'";
 				$c->query($query);
 				$c->close();
 			}catch(Exception $ex){
@@ -62,11 +42,11 @@
 			return $situacao;
 		}
 
-		function excluir($idcliente){
+		function excluir($user){
 			$situacao = TRUE;
 			$c = $this->conectar();
 			try{
-					$query = "delete from tbcliente where cdcliente = {$idcliente}";
+					$query = "delete from User cdcliente = {$idcliente}";
 					$c->query($query);
 					$c->close();
 			}catch(Exception $ex){
@@ -77,44 +57,40 @@
 		}
 
 		function listar(){
-			$clientes = array();
+			$users = array();
 			try{
 				$c = $this->conectar();
-				$query = "select * from tbcliente";
+				$query = "select * from User";
 				$resultado = $c->query($query);
 				$c->close();
 				while($registro = mysqli_fetch_assoc($resultado)) {
-					$cliente = new Cliente();
-					$cliente->setIdcliente($registro['cdcliente']);
-					$cliente->setNmcliente($registro['nmcliente']);
-					$cliente->setCpf($registro['cpfcliente']);
-					$cliente->setTelefone($registro['telcliente']);
-					array_push($clientes, $cliente);
+					$user = new User();
+					$user->setIdUser($registro['idUser']);
+					$user->setNameUser($registro['nameUser']);
+					array_push($users, $user);
 				}
 				$resultado->close();
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
-			return $clientes;
+			return $users;
 		}
 
 		function buscarPorId($codigo){
-			$cliente = new Cliente();
+			$user = new User();
 			try{
 				$c = $this->conectar();
-				$query = "select * from tbcliente where cdcliente = {$codigo}";
+				$query = "select * from Usuario where idUsuario = {$codigo}";
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
-				$cliente->setIdCliente($registro['cdcliente']);
-				$cliente->setNmcliente($registro['nmcliente']);
-				$cliente->setCpf($registro['cpfcliente']);
-				$cliente->setTelefone($registro['telcliente']);
+				$user->setidUser($registro['idUser']);
+				$user->setNameUser($registro['nameUser']);
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 
-			return $cliente;
+			return $user;
         }*/
 
 	}
