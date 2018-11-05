@@ -69,10 +69,8 @@ $series = $banco_serie->listar();
             <td><?php echo $series->getChannel()?></td>
             <td><?php echo $series->printStatus()?></td>
             <td>
-              <form action="editarSerie.php" method="post">
-                <input type="hidden" name="idTVShow" value="<?php echo $series->getIdTVShow()?>" />
-                <button type="submit" class="btn btn-outline-danger" id="editBtn">Editar</button>
-              </form>
+              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalEdit<?php echo $series->getIdTVShow();?>">Editar</button>
+                <?php include "includes/modalEditSeries.php" ?>
             </td>
             <td>
               <!-- Colocar uma verificação!!! -->
