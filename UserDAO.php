@@ -66,7 +66,7 @@
 				while($registro = mysqli_fetch_assoc($resultado)) {
 					$user = new User();
 					$user->setIdUser($registro['idUser']);
-					$user->setNameUser($registro['nameUser']);
+					$user->setName($registro['name']);
 					array_push($users, $user);
 				}
 				$resultado->close();
@@ -85,7 +85,7 @@
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
 				$user->setidUser($registro['idUser']);
-				$user->setNameUser($registro['nameUser']);
+				$user->setName($registro['nameUser']);
 			}catch(Exception $ex){
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}

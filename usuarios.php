@@ -65,23 +65,25 @@ $users = $banco_user->listar();
       <table class="table table-hover">
         <thead>
           <tr>
+            <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            <th scope="col">Opções</th>
+            <th scope="col">Opção 1</th>
+            <th scope="col">Opção 2</th>
           </tr>
         </thead>
         <tbody>
           <?php
           foreach ($users as $users) {
-            if ($users->getIdUser()) {
+            
           ?>
           <tr>
-            <th scope="row"><?php echo $users->getIdUser()?></th>
+            <td scope="row"><?php echo $users->getIdUser()?></td>
             <td><?php echo $users->getName()?></td>
             <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
             <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
           </tr>
           <?php
-            }
+            
           }
           ?>
         </tbody>
