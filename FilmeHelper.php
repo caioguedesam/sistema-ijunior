@@ -1,6 +1,7 @@
 <?php
     require_once 'Filme.php';
     require_once 'FilmeDAO.php';
+    require_once 'User.php';
 	$acao = $_GET["acao"];
 	
 	switch($acao){
@@ -55,6 +56,20 @@
 				echo "<script>alert('Erro ao excluir o Filme.');</script>";
 			}
 			echo "<script>location.href='filmes.php';</script>";
+		break;
+		case 'avaliar':
+			$banco_movie = new FilmeDAO();
+			$banco_user = new UserDAO();
+
+			$movie = $banco_movie->buscarPorId($_POST["movie"]);
+			$grade = $_POST["grade"];
+			if($banco_movie->rating($movie, $banco_user->buscarPorNome($_POST["user"]), $grade))
+			{
+				echo "<script>alert('Filme avaliado com sucesso!');</script>";
+			}else{
+				echo "<script>alert('Erro ao avaliar o Filme!');</script>";
+			}
+            echo "<script>location.href='filmes.php';</script>";
 		break;
 
 	}
