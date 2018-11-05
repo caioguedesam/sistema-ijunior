@@ -18,7 +18,7 @@
     <form action="UserHelper.php?acao=alterar" method="post">
                 
         <input type="number" name="idUser" id="idUser" value="<?php echo $user->getIdUser() ?>" readonly ><br>
-        <input type="text" name="name" value="<?php echo $user->getNameUser()?>" required><br>
+        <input type="text" name="name" value="<?php echo $user->getName()?>" required><br>
 
         <div class="modal-footer">
         <input type="submit" value="Editar" class="btn btn-success">

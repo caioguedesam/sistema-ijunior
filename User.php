@@ -16,11 +16,11 @@
 			$this->idUser = intval($idUser);
 		}
 
-		function getNameUser(){
+		function getName(){
 			return $this->name;
 		}
 
-		function setNameUser($name){
+		function setName($name){
 			$this->nameUser = $name;
 		}
 	}

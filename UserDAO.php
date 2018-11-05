@@ -1,5 +1,5 @@
 <?php
-	class UserDao{
+	class UserDAO{
 		
 
 		public function conectar(){
@@ -16,7 +16,7 @@
 			$situacao = TRUE;
 			try{
 				$c = $this->conectar();
-				$query = "INSERT INTO User (name) values ({$user->getNameUser()}', '1')";
+				$query = "INSERT INTO User (name) values ({$user->getName()}', '1')";
 				$c->query($query);
 				$codigo = $c->insert_id;
                 $user->setIdUser($codigo);
@@ -91,7 +91,7 @@
 			}
 
 			return $user;
-        }*/
+        }
 
 	}
 
