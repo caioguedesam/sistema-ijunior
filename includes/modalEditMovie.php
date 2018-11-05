@@ -1,5 +1,5 @@
 <!-- Tem q consertar. Só tá aparecendo o primeiro filme pra editar, e não o resto -->
-<div class="modal" tabindex="-1" role="dialog" id="modalEdit">
+<div class="modal" tabindex="-1" role="dialog" id="modalEdit<?php echo $filmes->getIdMovie();?>">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">

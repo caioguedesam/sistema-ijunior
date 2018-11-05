@@ -65,8 +65,7 @@ $filmes = $banco_filme->listar();
             <td><?php echo $filmes->getDirector()?></td>
             <td><?php echo $filmes->getStudio()?></td>
             <td>
-                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIdMovie()?>" />
-                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalEdit">Editar</button>
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalEdit<?php echo $filmes->getIdMovie();?>">Editar</button>
                 <?php include "includes/modalEditMovie.php" ?>
             </td>
             
