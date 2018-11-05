@@ -86,7 +86,7 @@
                 <input type="number" name="exibitionYear" placeholder="Ano de Exibição"><br>
                 <input type="text" name="creator" placeholder="Criador"><br>
                 <input type="text" name="channel" placeholder="Canal"><br>
-                <input type="radio" name="status" value="0"> Em Exibição<br>
+                <input type="radio" name="status" value="0" checked> Em Exibição<br>
                 <input type="radio" name="status" value="1"> Concluída<br>
 
                 <div class="modal-footer">
