@@ -35,6 +35,11 @@
 				$query = "UPDATE Movie SET name='{$movie->getName()}', releaseYear='{$movie->getReleaseYear()}', runningTime='{$movie->getRunningTime()}', genre='{$movie->getGenre()}', director='{$movie->getDirector()}', studio='{$movie->getStudio()}' WHERE idMovie='{$movie->getIdMovie()}'";
 				$c->query($query);
 				$c->close();
+
+				$query = "UPDATE Movie SET active='1' WHERE idMovie='{$movie->getIdMovie()}'";
+				$c->query($query);
+				$c->close();
+
 			}catch(Exception $ex){
 				$situacao = FALSE;
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
