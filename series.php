@@ -49,6 +49,8 @@ $series = $banco_serie->listar();
             <th scope="col">Status</th>
             <th scope="col">Opção 1</th>
             <th scope="col">Opção 2</th>
+            <th scope="col">Opção 3</th>
+            <th scope="col">Opção 4</th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +81,11 @@ $series = $banco_serie->listar();
                 <button type="submit" class="btn btn-outline-danger" id="deleteBtn">Excluir</button>
               </form>
             </td>
+            <td></td>
+            <td><form action="SerieHelper.php?acao=watchlist" method="post">
+                <input type="hidden" name="idTVShow" value="<?php echo $series->getIdTVShow()?>" />
+                <button type="submit" class="btn btn-outline-danger" id="watchListBtn">Add to Watchlist</button>
+              </form></td>
           </tr>
           <?php
             }

@@ -103,7 +103,24 @@
 			}
 
 			return $movie;
-        }
+		}
+		
+		function watchList($movie, $user){
+			$situacao = TRUE;
+			try{
+				$c = $this->conectar();
+				//INSERT INTO User_Movies (idUser, idMovie, watchList, rating) values (1, 1, 1, 0)
+				$query = "INSERT INTO User_Movies (idUser, idMovie, watchlist, rating) values ('{$user->getIdUser()}', '{$movie->getIdMovie()}', '1', '0')";
+				$c->query($query);
+				$codigo = $c->insert_id;
+                $movie->setIdMovie($codigo);
+				$c->close();
+			}catch(Exception $ex){
+				$situacao = FALSE;
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $situacao;
+		}
 
 	}
 
