@@ -122,6 +122,23 @@
 			return $situacao;
 		}
 
+		function rating($movie, $user, $grade){
+			$situacao = TRUE;
+			try{
+				$c = $this->conectar();
+				//INSERT INTO User_Movies (idUser, idMovie, watchList, rating) values (1, 2, 0, 4)
+				$query = "INSERT INTO User_Movies (idUser, idMovie, watchlist, rating) values ('{$user->getIdUser()}', '{$movie->getIdMovie()}', '0', '{$grade}')";
+				$c->query($query);
+				$codigo = $c->insert_id;
+                $movie->setIdMovie($codigo);
+				$c->close();
+			}catch(Exception $ex){
+				$situacao = FALSE;
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $situacao;
+		}
+
 	}
 
 ?>

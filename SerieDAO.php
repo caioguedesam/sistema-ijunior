@@ -126,6 +126,23 @@
 			return $situacao;
 		}
 
+		function rating($serie, $user, $grade){
+			$situacao = TRUE;
+			try{
+				$c = $this->conectar();
+				//INSERT INTO User_TVShow (idUser, idTVShow, watchList, rating) values (1, 1, 1, 0)
+				$query = "INSERT INTO User_TVShow (idUser, idTVShow, watchlist, rating) values ('{$user->getIdUser()}', '{$serie->getIdTVShow()}', '0', '{$grade}')";
+				$c->query($query);
+				$codigo = $c->insert_id;
+                $movie->setIdMovie($codigo);
+				$c->close();
+			}catch(Exception $ex){
+				$situacao = FALSE;
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $situacao;
+		}
+
 	}
 
 ?>
