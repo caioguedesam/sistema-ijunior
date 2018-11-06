@@ -74,11 +74,8 @@ $filmes = $banco_filme->listar();
             </td>
             
             <td>
-              <!-- Colocar uma verificação!!! -->
-              <form action="FilmeHelper.php?acao=excluir" method="post">
-                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIDMovie()?>" />
-                <button type="submit" class="btn btn-outline-danger" id="deleteBtn">Excluir</button>
-              </form>
+                <button type="submit" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalDelete<?php echo $filmes->getIdMovie();?>">Excluir</button>
+                <?php include "includes/modalDeleteMovie.php" ?>
             </td>
             <td></td>
             <td><form action="FilmeHelper.php?acao=watchlist" method="post">
