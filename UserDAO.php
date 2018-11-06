@@ -16,7 +16,7 @@
 			$situacao = TRUE;
 			try{
 				$c = $this->conectar();
-				$query = "INSERT INTO User (name) values ({$user->getName()}', '1')";
+				$query = "INSERT INTO User (name) values ('{$user->getName()}')";
 				$c->query($query);
 				$codigo = $c->insert_id;
                 $user->setIdUser($codigo);

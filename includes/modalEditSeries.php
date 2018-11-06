@@ -22,7 +22,7 @@
                 <input type="radio" name="status" value="1"> Concluída<br>
         
                 <div class="modal-footer">
-                <input type="submit" value="Ediar" class="btn btn-success">
+                <input type="submit" value="Editar" class="btn btn-success">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </form>
             </div>

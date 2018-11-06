@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <form action="SerieHelper.php?acao=watchList" method="post">
-            <input type='hidden' name='serie' id="serie" value='<?php echo $series->getIdTVShow();?>'/>
+            <input type='hidden' name="serie" id="serie" value='<?php echo $series->getIdTVShow();?>'/>
             <input type="text" name="user" id="user" placeholder="Nome do Usuário"><br><br>
 
             <div class="modal-footer">

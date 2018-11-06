@@ -56,14 +56,13 @@ $users = $banco_user->listar();
           </div>
         </div>
       </div>
-      <!--Tabela de Filmes-->
+      <!--Tabela de Usuários-->
       <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            <th scope="col">Opção 1</th>
-            <th scope="col">Opção 2</th>
+            <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>
@@ -83,7 +82,7 @@ $users = $banco_user->listar();
           ?>
         </tbody>
       </table>
-      <!-- Fim da Tabela TESTE -->
+      <!-- Fim da Tabela -->
     </div>
   </div>
 </div>

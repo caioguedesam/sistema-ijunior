@@ -65,7 +65,6 @@ $filmes = $banco_filme->listar();
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalRate<?php echo $filmes->getIdMovie();?>">Avaliar</button>
                 <?php include "includes/ratingMovie.php" ?>
             </td>
-            
             <td>
                 <button type="submit" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalDelete<?php echo $filmes->getIdMovie();?>">Excluir</button>
                 <?php include "includes/modalDeleteMovie.php" ?>

@@ -56,9 +56,9 @@
 			$serie->setStatus($_POST["status"]);
 			
 			if($banco_serie->alterar($serie)){
-				echo "<script>alert('Série alterado com sucesso!');</script>";
+				echo "<script>alert('Temporada alterada com sucesso!');</script>";
 			}else{
-				echo "<script>alert('Erro ao alterar o Série.');</script>";
+				echo "<script>alert('Erro ao alterar a Temporada.');</script>";
 			}
             echo "<script>location.href='series.php';</script>";
         break;
