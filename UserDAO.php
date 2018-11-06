@@ -80,7 +80,7 @@
 			$user = new User();
 			try{
 				$c = $this->conectar();
-				$query = "select * from User where idUsuario = {$codigo}";
+				$query = "select * from User where idUsuario = '{$codigo}'";
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);
@@ -97,7 +97,7 @@
 			$user = new User();
 			try{
 				$c = $this->conectar();
-				$query = "select * from User where name = {$name}";
+				$query = "select * from User where name = '{$name}'";
 				$resultado = $c->query($query);
 				$c->close();
 				$registro = mysqli_fetch_assoc($resultado);

@@ -79,7 +79,7 @@ $filmes = $banco_filme->listar();
             </td>
             <td></td>
             <td><form action="FilmeHelper.php?acao=watchlist" method="post">
-                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIDMovie()?>" />
+                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIdMovie()?>" />
                 <button type="submit" class="btn btn-outline-danger" id="watchListBtn">Add to Watchlist</button>
               </form></td>
           </tr>

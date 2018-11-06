@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <form action="FilmeHelper.php?acao=avaliar" method="post">
-            <input type='hidden' name='movie' id="movie" value='<?php echo "$filmes->getIdMovie()";?>'/>
+            <input type='hidden' name='movie' id="movie" value='<?php echo $filmes->getIdMovie();?>'/>
             <input type="text" name="user" id="user" placeholder="Nome do Usuário"><br><br>
             <input type="radio" name="grade" id="grade" value="1" checked>1<br>
             <input type="radio" name="grade" id="grade" value="2">2<br>
