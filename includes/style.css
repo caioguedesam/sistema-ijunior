@@ -124,5 +124,10 @@ body
 {
 	margin: 0px;
 }
+.table #modalbtn
+{
+	margin: 0px;
+	padding: 6px;
+}
 
 /* PRECISA ORGANIZAR ESSA BAGUNÇA QUE EU FIZ! -Caio */

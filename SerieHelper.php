@@ -1,6 +1,8 @@
 <?php
     require_once 'Serie.php';
     require_once 'SerieDAO.php';
+    require_once 'User.php';
+    require_once 'UserDAO.php';
 	$acao = $_GET["acao"];
 	
 	switch($acao){
@@ -26,9 +28,9 @@
 		break;
 
 		case 'excluir':
-			$banco_serie = new serieDAO();
+			$banco_serie = new SerieDAO();
 			
-			$idTVShow = $_POST["idTVShow"];
+			$idTVShow = $_POST["idSerie"];
 			
 			if($banco_serie->excluir($idTVShow)){
 				echo "<script>alert('Registro excluído com sucesso!');</script>";
@@ -59,7 +61,34 @@
 				echo "<script>alert('Erro ao alterar o Série.');</script>";
 			}
             echo "<script>location.href='series.php';</script>";
-            
+        break;
+        case 'avaliar':
+			$banco_serie = new SerieDAO();
+			$banco_user = new UserDAO();
+
+			$serie = $banco_serie->buscarPorId($_POST["serie"]);
+			$grade = $_POST["grade"];
+			if($banco_serie->rating($serie, $banco_user->buscarPorNome($_POST["user"]), $grade))
+			{
+				echo "<script>alert('Temporada avaliada com sucesso!');</script>";
+			}else{
+				echo "<script>alert('Erro ao avaliar a Temporada!');</script>";
+			}
+            echo "<script>location.href='series.php';</script>";
+		break;
+        case 'watchList':
+			$banco_serie = new SerieDAO();
+			$banco_user = new UserDAO();
+
+			$serie = $banco_serie->buscarPorId($_POST["serie"]);
+			if($banco_serie->watchList($serie, $banco_user->buscarPorNome($_POST["user"])))
+			{
+				echo "<script>alert('Temporada adicionada com sucesso!');</script>";
+			}else{
+				echo "<script>alert('Erro ao adicionar a Temporada!');</script>";
+			}
+            echo "<script>location.href='series.php';</script>";
+		break;
 	}
 
 ?>

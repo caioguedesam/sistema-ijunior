@@ -43,10 +43,7 @@ $series = $banco_serie->listar();
             <th scope="col">Criador</th>
             <th scope="col">Canal</th>
             <th scope="col">Status</th>
-            <th scope="col">Opção 1</th>
-            <th scope="col">Opção 2</th>
-            <th scope="col">Opção 3</th>
-            <th scope="col">Opção 4</th>
+            <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>
@@ -65,21 +62,21 @@ $series = $banco_serie->listar();
             <td><?php echo $series->getChannel()?></td>
             <td><?php echo $series->printStatus()?></td>
             <td>
-              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalEdit<?php echo $series->getIdTVShow();?>">Editar</button>
+              <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalEdit<?php echo $series->getIdTVShow();?>">Editar</button>
                 <?php include "includes/modalEditSeries.php" ?>
             </td>
             <td>
-              <!-- Colocar uma verificação!!! -->
-              <form action="SerieHelper.php?acao=excluir" method="post">
-                <input type="hidden" name="idTVShow" value="<?php echo $series->getIdTVShow()?>" />
-                <button type="submit" class="btn btn-outline-danger" id="deleteBtn">Excluir</button>
-              </form>
+                <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalRate<?php echo $series->getIdTVShow();?>">Avaliar</button>
+                <?php include "includes/ratingSeries.php" ?>
             </td>
-            <td></td>
-            <td><form action="SerieHelper.php?acao=watchlist" method="post">
-                <input type="hidden" name="idTVShow" value="<?php echo $series->getIdTVShow()?>" />
-                <button type="submit" class="btn btn-outline-danger" id="watchListBtn">Add to Watchlist</button>
-              </form></td>
+            <td>
+              <button type="submit" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalDelete<?php echo $series->getIdTVShow();?>">Excluir</button>
+              <?php include "includes/modalDeleteSeries.php" ?>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatchList<?php echo $series->getIdTVShow();?>">Desejo Assistir</button>
+                <?php include "includes/watchListSeries.php" ?>
+            </td>
           </tr>
           <?php
             }
