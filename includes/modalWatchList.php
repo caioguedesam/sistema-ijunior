@@ -11,7 +11,7 @@
         
         
         <form action="UserHelper.php?acao=listWatchList" method="post">
-
+        <h5 class="modal-title">Filmes</h5>
             <!--Tabela de Filmes-->
             <table class="table table-hover">
               <thead>
@@ -50,8 +50,9 @@
                 ?>
               </tbody>
             </table>
-            <!-- Fim da Tabela TESTE -->
+            <!-- Fim da Tabela -->
 
+            <h5 class="modal-title">Séries</h5>
             <!--Tabela de Series-->
             <table class="table table-hover">
               <thead>
