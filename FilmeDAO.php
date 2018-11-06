@@ -144,6 +144,40 @@
 			return $situacao;
 		}
 
+		function listarWatched($user){
+			$filmes = array();
+			try{
+				$c = $this->conectar();
+				$query = "select * from User_Movies where idUser = {$user->getIdUser()} AND rating != 0";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$filme = new Filme();
+					$filme->setIdMovie($registro['idMovie']);
+					$c2 = $this->conectar();
+					$query2 = "select * from Movie where idMovie = {$filme->getIdMovie()}";
+					$resultado2 = $c2->query($query2);
+					$c2->close();
+					while($registro2 = mysqli_fetch_assoc($resultado2)) {
+						$filme = new Filme();
+						$filme->setIdMovie($registro2['idMovie']);
+						$filme->setName($registro2['name']);
+						$filme->setReleaseYear($registro2['releaseYear']);
+						$filme->setRunningTime($registro2['runningTime']);
+						$filme->setGenre($registro2['genre']);
+						$filme->setDirector($registro2['director']);
+						$filme->setStudio($registro2['studio']);
+						$filme->setStatus($registro2['active']);
+						array_push($filmes, $filme);
+					}
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $filmes;
+		}
+
 	}
 
 ?>

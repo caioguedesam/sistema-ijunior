@@ -56,13 +56,15 @@ $users = $banco_user->listar();
           </div>
         </div>
       </div>
+
       <!--Tabela de Usuários-->
       <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            <th scope="col">Opções</th>
+            <th scope="col">Opção 1</th>
+            <th scope="col">Opção 2</th>
           </tr>
         </thead>
         <tbody>
@@ -73,8 +75,14 @@ $users = $banco_user->listar();
           <tr>
             <td scope="row"><?php echo $users->getIdUser()?></td>
             <td><?php echo $users->getName()?></td>
-            <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
-            <td><button type="button" class="btn btn-outline-danger" id="tablebtn">Opção Teste</button></td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatched<?php echo $users->getIdUser();?>">Assistidos</button>
+                <?php include "includes/modalWatched.php";?>
+            </td>
+            <td>
+                <button type="submit" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatchList<?php echo $users->getIdUser();?>">Desejados</button>
+                <?php include "includes/modalWatchList.php";?>
+            </td>
           </tr>
           <?php
             
