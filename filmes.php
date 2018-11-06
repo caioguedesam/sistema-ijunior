@@ -77,11 +77,10 @@ $filmes = $banco_filme->listar();
                 <button type="submit" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalDelete<?php echo $filmes->getIdMovie();?>">Excluir</button>
                 <?php include "includes/modalDeleteMovie.php" ?>
             </td>
-            <td></td>
-            <td><form action="FilmeHelper.php?acao=watchlist" method="post">
-                <input type="hidden" name="idMovie" value="<?php echo $filmes->getIdMovie()?>" />
-                <button type="submit" class="btn btn-outline-danger" id="watchListBtn">Add to Watchlist</button>
-              </form></td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalWatchList<?php echo $filmes->getIdMovie();?>">Add to WatchList</button>
+                <?php include "includes/watchListMovie.php" ?>
+            </td>
           </tr>
           <?php
             }

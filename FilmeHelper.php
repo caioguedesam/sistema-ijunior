@@ -73,6 +73,20 @@
             echo "<script>location.href='filmes.php';</script>";
 		break;
 
+		case 'watchList':
+			$banco_movie = new FilmeDAO();
+			$banco_user = new UserDAO();
+
+			$movie = $banco_movie->buscarPorId($_POST["movie"]);
+			if($banco_movie->watchList($movie, $banco_user->buscarPorNome($_POST["user"])))
+			{
+				echo "<script>alert('Filme avaliado com sucesso!');</script>";
+			}else{
+				echo "<script>alert('Erro ao avaliar o Filme!');</script>";
+			}
+            echo "<script>location.href='filmes.php';</script>";
+		break;
+
 	}
 
 ?>
