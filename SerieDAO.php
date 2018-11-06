@@ -117,7 +117,7 @@
 				$query = "INSERT INTO User_TVShow (idUser, idTVShow, watchlist, rating) values ('{$user->getIdUser()}', '{$serie->getIdTVShow()}', '1', '0')";
 				$c->query($query);
 				$codigo = $c->insert_id;
-                $movie->setIdMovie($codigo);
+                $serie->setIdTVShow($codigo);
 				$c->close();
 			}catch(Exception $ex){
 				$situacao = FALSE;
@@ -134,13 +134,72 @@
 				$query = "INSERT INTO User_TVShow (idUser, idTVShow, watchlist, rating) values ('{$user->getIdUser()}', '{$serie->getIdTVShow()}', '0', '{$grade}')";
 				$c->query($query);
 				$codigo = $c->insert_id;
-                $movie->setIdMovie($codigo);
+                $serie->setIdTVShow($codigo);
 				$c->close();
 			}catch(Exception $ex){
 				$situacao = FALSE;
 				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
 			}
 			return $situacao;
+		}
+
+		function listarWatched($user){
+			$series = array();
+			try{
+				$c = $this->conectar();
+				$query = "select * from User_TVShow where idUser = {$user->getIdUser()} AND rating != 0";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$serie = new Serie();
+					$serie->setIdTVShow($registro['idTVShow']);
+					$c2 = $this->conectar();
+					$query2 = "select * from TVShow where idTVShow = {$serie->getIdTVShow()}";
+					$resultado2 = $c2->query($query2);
+					$c2->close();
+					while($registro2 = mysqli_fetch_assoc($resultado2)) {
+						$serie = new Serie();
+						$serie->setIdTVShow($registro2['idTVShow']);
+						$serie->setName($registro2['name']);
+						$serie->setSeason($registro2['season']);
+						$serie->setActive($registro['rating']);\
+						array_push($series, $serie);
+					}
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $series;
+		}
+
+		function listarWatchList($user){
+			$series = array();
+			try{
+				$c = $this->conectar();
+				$query = "select * from User_TVShow where idUser = {$user->getIdUser()} AND watchList = 1";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$serie = new Serie();
+					$serie->setIdTVShow($registro['idTVShow']);
+					$c2 = $this->conectar();
+					$query2 = "select * from TVShow where idTVShow = {$serie->getIdTVShow()}";
+					$resultado2 = $c2->query($query2);
+					$c2->close();
+					while($registro2 = mysqli_fetch_assoc($resultado2)) {
+						$serie = new Serie();
+						$serie->setIdTVShow($registro2['idTVShow']);
+						$serie->setName($registro2['name']);
+						$serie->setSeason($registro2['season']);
+						array_push($series, $serie);
+					}
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $series;
 		}
 
 	}

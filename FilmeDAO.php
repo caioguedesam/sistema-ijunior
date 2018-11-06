@@ -167,7 +167,7 @@
 						$filme->setGenre($registro2['genre']);
 						$filme->setDirector($registro2['director']);
 						$filme->setStudio($registro2['studio']);
-						$filme->setStatus($registro2['active']);
+						$filme->setStatus($registro['rating']);
 						array_push($filmes, $filme);
 					}
 				}
