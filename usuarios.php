@@ -1,5 +1,4 @@
 <?php
-//Acho que o erro que nã oestá abrindo usuarios.php tem a ver com isso aqui (1/2, o outro está no userDAO.php)
 require_once 'User.php';
 require_once 'UserDAO.php';
 $banco_user = new UserDAO();
@@ -21,12 +20,8 @@ $users = $banco_user->listar();
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>TVNews - Portal de Filmes</h1> 
-</div>
-
-<!-- Inclui o menu -->
-<?php include "includes/menu.php"; ?>
+<!-- Inclui o header -->
+<?php include "includes/header.php"; ?>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
@@ -93,9 +88,7 @@ $users = $banco_user->listar();
   </div>
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>TVNews - Todos os Direitos Reservados</p>
-</div>
+<?php include "includes/footer.php"; ?>
 
 <div class="bg-modal"></div>
 

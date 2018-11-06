@@ -12,12 +12,8 @@
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>TVNews</h1> 
-</div>
-
-<!-- Inclui o menu -->
-<?php include "includes/menu.php"; ?>
+<!-- Inclui o header -->
+<?php include "includes/header.php"; ?>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
@@ -60,9 +56,7 @@
   </div>
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>TVNews Rodapé</p>
-</div>
+<?php include "includes/footer.php"; ?>
 
 </body>
 <!--
