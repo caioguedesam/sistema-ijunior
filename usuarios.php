@@ -63,8 +63,7 @@ $users = $banco_user->listar();
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            <th scope="col">Opção 1</th>
-            <th scope="col">Opção 2</th>
+            <th scope="col">Opções</th>
           </tr>
         </thead>
         <tbody>

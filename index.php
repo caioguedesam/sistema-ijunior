@@ -41,15 +41,15 @@
       <img src="assets/seriesicon.png">
       <h3>Temporadas mais assistidas</h3>
       <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
+        <li>Exemplo Falls</li>
+        <li>Quebrando Exemplos</li>
+        <li>Exemplo's Anatomy</li>
       </ul>
       <h3>Temporadas mais desejadas</h3>
       <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
+        <li>Exemplo Falls</li>
+        <li>Quebrando Exemplos</li>
+        <li>Exemplo's Anatomy</li>
       </ul>
       <br>
     </div>
