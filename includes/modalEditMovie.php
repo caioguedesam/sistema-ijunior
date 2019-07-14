@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="FilmeHelper.php?acao=alterar" method="post">
+        <form action="../controller/FilmeHelper.php?acao=alterar" method="post">
                     
             <input type="number" name="idMovie" id="idMovie" value="<?php echo $filmes->getIdMovie() ?>" readonly ><br>
             <input type="text" name="name" value="<?php echo $filmes->getName()?>" required><br>

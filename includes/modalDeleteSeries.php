@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="SerieHelper.php?acao=excluir" method="post">
+        <form action="../controller/SerieHelper.php?acao=excluir" method="post">
             <p>Deseja realmente excluir <?php echo $series->getName(); ?>?</p>
             <input type="hidden" name="idSerie" value="<?php echo $series->getIdTVShow();?>"/>
             <div class="modal-footer">

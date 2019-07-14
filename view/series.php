@@ -1,6 +1,6 @@
 <?php
-require_once 'Serie.php';
-require_once 'SerieDAO.php';
+require_once '../model/Serie.php';
+require_once '../controller/SerieDAO.php';
 $banco_serie = new serieDAO();
 $series = $banco_serie->listar();
 
@@ -13,7 +13,7 @@ $series = $banco_serie->listar();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="includes/style.css">
+  <link rel="stylesheet" href="../includes/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -21,13 +21,13 @@ $series = $banco_serie->listar();
 <body>
 
 <!-- Inclui o header -->
-<?php include "includes/header.php"; ?>
+<?php include "../includes/header.php"; ?>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col">
       <br>
-      <img src="assets/seriesicon.png">
+      <img src="../assets/seriesicon.png">
       <h2>Séries</h2>
       <br>
       <!--Tabela de Filmes-->
@@ -63,19 +63,19 @@ $series = $banco_serie->listar();
             <td><?php echo $series->printStatus()?></td>
             <td>
               <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalEdit<?php echo $series->getIdTVShow();?>">Editar</button>
-                <?php include "includes/modalEditSeries.php" ?>
+                <?php include "../includes/modalEditSeries.php" ?>
             </td>
             <td>
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalRate<?php echo $series->getIdTVShow();?>">Avaliar</button>
-                <?php include "includes/ratingSeries.php" ?>
+                <?php include "../includes/ratingSeries.php" ?>
             </td>
             <td>
               <button type="submit" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalDelete<?php echo $series->getIdTVShow();?>">Excluir</button>
-              <?php include "includes/modalDeleteSeries.php" ?>
+              <?php include "../includes/modalDeleteSeries.php" ?>
             </td>
             <td>
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatchList<?php echo $series->getIdTVShow();?>">Desejo Assistir</button>
-                <?php include "includes/watchListSeries.php" ?>
+                <?php include "../includes/watchListSeries.php" ?>
             </td>
           </tr>
           <?php
@@ -89,7 +89,7 @@ $series = $banco_serie->listar();
   </div>
 </div>
 
-<?php include "includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
 
 <div class="bg-modal"></div>
 

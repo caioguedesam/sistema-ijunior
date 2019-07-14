@@ -10,7 +10,7 @@ echo '<div class="modal" tabindex="-1" role="dialog" id="modalFilme">
               </button>
             </div>
             <div class="modal-body">
-              <form action="FilmeHelper.php?acao=novo" method="post">
+              <form action="../controller/FilmeHelper.php?acao=novo" method="post">
                 
                 <input type="text" name="name" placeholder="Nome"><br>
                 <input type="number" name="releaseYear"placeholder="Ano de Lançamento"><br>

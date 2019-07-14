@@ -6,19 +6,19 @@ echo '<nav class="navbar navbar-expand-sm navbar-dark">
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Início</a>
+        <a class="nav-link" href="http://localhost/sistema-ijunior/index.php">Início</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="registro.php">Registro</a>
+        <a class="nav-link" href="http://localhost/sistema-ijunior/view/registro.php">Registro</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="filmes.php">Filmes</a>
+        <a class="nav-link" href="http://localhost/sistema-ijunior/view/filmes.php">Filmes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="series.php">Séries</a>
+        <a class="nav-link" href="http://localhost/sistema-ijunior/view/series.php">Séries</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="usuarios.php">Usuários</a>
+        <a class="nav-link" href="http://localhost/sistema-ijunior/view/usuarios.php">Usuários</a>
       </li>     
     </ul>
   </div>  

@@ -1,1 +1,2 @@
-sistema-ijunior
+Sistema Web desenvolvido para o processo Trainee - IJúnior
+

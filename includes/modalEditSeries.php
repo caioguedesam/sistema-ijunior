@@ -8,7 +8,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="SerieHelper.php?acao=alterar" method="post">
+              <form action="../controller/SerieHelper.php?acao=alterar" method="post">
                 
                 <input type="number" name="idTVShow" id="idTVShow" value="<?php echo $series->getIdTVShow() ?>" readonly ><br>
                 <input type="text" name="name" value="<?php echo $series->getName()?>" required><br>

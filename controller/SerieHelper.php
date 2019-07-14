@@ -1,7 +1,7 @@
 <?php
-    require_once 'Serie.php';
+    require_once '../model/Serie.php';
     require_once 'SerieDAO.php';
-    require_once 'User.php';
+    require_once '../model/User.php';
     require_once 'UserDAO.php';
 	$acao = $_GET["acao"];
 	
@@ -24,7 +24,7 @@
 			}else{
 				echo "<script>alert('Erro ao salvar a série!.');</script>";
 			}
-			echo "<script>location.href='registro.php';</script>";
+			echo "<script>location.href='../view/registro.php';</script>";
 		break;
 
 		case 'excluir':
@@ -37,7 +37,7 @@
 			}else{
 				echo "<script>alert('Erro ao excluir a Série.');</script>";
 			}
-			echo "<script>location.href='series.php';</script>";
+			echo "<script>location.href='../view/series.php';</script>";
 		break;
 		
 
@@ -60,7 +60,7 @@
 			}else{
 				echo "<script>alert('Erro ao alterar a Temporada.');</script>";
 			}
-            echo "<script>location.href='series.php';</script>";
+            echo "<script>location.href='../view/series.php';</script>";
         break;
         case 'avaliar':
 			$banco_serie = new SerieDAO();
@@ -74,7 +74,7 @@
 			}else{
 				echo "<script>alert('Erro ao avaliar a Temporada!');</script>";
 			}
-            echo "<script>location.href='series.php';</script>";
+            echo "<script>location.href=../view/series.php';</script>";
 		break;
         case 'watchList':
 			$banco_serie = new SerieDAO();
@@ -87,7 +87,7 @@
 			}else{
 				echo "<script>alert('Erro ao adicionar a Temporada!');</script>";
 			}
-            echo "<script>location.href='series.php';</script>";
+            echo "<script>location.href='../view/series.php';</script>";
 		break;
 	}
 
