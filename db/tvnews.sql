@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2019 at 04:45 AM
+-- Generation Time: Jul 15, 2019 at 08:34 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -44,7 +44,12 @@ CREATE TABLE `Movie` (
 --
 
 INSERT INTO `Movie` (`idMovie`, `name`, `releaseYear`, `runningTime`, `genre`, `director`, `studio`, `active`) VALUES
-(1, 'O Auto da Compadecida', 2000, 104, 'ComÃ©dia', 'Guel Arraes', 'Globo Filmes', 1);
+(1, 'O Auto da Compadecida', 2000, 104, 'ComÃ©dia', 'Guel Arraes', 'Globo Filmes', 1),
+(2, 'Eternal Sunshine of the Spotless Mind', 2004, 108, 'Romance', 'Michel Gondry', 'Universal', 1),
+(3, 'Pulp Fiction', 1994, 154, 'Crime', 'Quentin Tarantino', 'Miramax Films', 1),
+(4, 'Fight Club', 1999, 139, 'Drama', 'David Fincher', 'Fox', 1),
+(5, 'Forrest Gump', 1994, 142, 'Drama', 'Robert Zemeckis', 'Paramount', 1),
+(6, 'Matrix', 1999, 136, 'Sci-Fi', 'The Wachowski Brothers', 'Warner Bros', 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +75,12 @@ CREATE TABLE `TVShow` (
 --
 
 INSERT INTO `TVShow` (`idTVShow`, `name`, `season`, `episodes`, `genre`, `exibitionYear`, `creator`, `channel`, `status`, `active`) VALUES
-(1, 'Friends', 8, 24, 'ComÃ©dia', 2001, 'David Crane e Marta Kauffman', 'NBC', 1, 1);
+(1, 'Friends', 8, 24, 'ComÃ©dia', 2001, 'David Crane e Marta Kauffman', 'NBC', 1, 1),
+(2, 'Breaking Bad', 5, 16, 'Suspense', 2012, 'Vince Gilligan', 'AMC', 1, 1),
+(3, 'Rick and Morty', 1, 11, 'ComÃ©dia', 2014, 'Justin Roiland', 'Adult Swim', 0, 1),
+(4, 'Game of Thrones', 8, 6, 'Fantasia', 2019, 'George R. R. Martin', 'HBO', 1, 1),
+(5, 'Mr Robot', 1, 10, 'Drama', 2015, 'Sam Esmail', 'USA', 0, 1),
+(6, 'Stranger Things', 3, 8, 'Sci-Fi', 2019, 'The Duffer Brothers', 'Netflix', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +99,10 @@ CREATE TABLE `User` (
 
 INSERT INTO `User` (`idUser`, `name`) VALUES
 (1, 'Guilherme'),
-(2, 'Miranda');
+(2, 'Henrique'),
+(3, 'JosÃ©'),
+(4, 'Riobaldo'),
+(5, 'Diadorim');
 
 -- --------------------------------------------------------
 
@@ -110,7 +123,19 @@ CREATE TABLE `User_Movies` (
 
 INSERT INTO `User_Movies` (`idUser`, `idMovie`, `watchList`, `rating`) VALUES
 (1, 1, 0, 5),
-(2, 1, 1, 0);
+(2, 1, 1, 0),
+(4, 2, 0, 5),
+(5, 2, 0, 5),
+(3, 2, 0, 4),
+(4, 3, 1, 0),
+(5, 3, 1, 0),
+(2, 4, 0, 4),
+(1, 4, 0, 5),
+(1, 5, 1, 0),
+(2, 5, 1, 0),
+(4, 6, 1, 0),
+(5, 6, 1, 0),
+(3, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -131,7 +156,21 @@ CREATE TABLE `User_TVShow` (
 
 INSERT INTO `User_TVShow` (`idUser`, `idTVShow`, `watchList`, `rating`) VALUES
 (2, 1, 0, 5),
-(1, 1, 1, 0);
+(1, 1, 1, 0),
+(4, 1, 0, 5),
+(5, 1, 0, 5),
+(2, 4, 0, 5),
+(1, 4, 0, 4),
+(3, 4, 0, 4),
+(4, 3, 0, 3),
+(5, 3, 0, 4),
+(3, 3, 0, 5),
+(4, 5, 1, 0),
+(5, 5, 1, 0),
+(2, 5, 1, 0),
+(1, 6, 1, 0),
+(3, 6, 1, 0),
+(3, 2, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -177,19 +216,19 @@ ALTER TABLE `User_TVShow`
 -- AUTO_INCREMENT for table `Movie`
 --
 ALTER TABLE `Movie`
-  MODIFY `idMovie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idMovie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `TVShow`
 --
 ALTER TABLE `TVShow`
-  MODIFY `idTVShow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idTVShow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

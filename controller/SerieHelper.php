@@ -74,7 +74,7 @@
 			}else{
 				echo "<script>alert('Erro ao avaliar a Temporada!');</script>";
 			}
-            echo "<script>location.href=../view/series.php';</script>";
+            echo "<script>location.href='../view/series.php';</script>";
 		break;
         case 'watchList':
 			$banco_serie = new SerieDAO();

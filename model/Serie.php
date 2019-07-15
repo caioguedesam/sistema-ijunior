@@ -90,7 +90,7 @@
 		}
 
 		function setStatus($status){
-			$this->status = boolval($status);
+			$this->status = $status;
 		}
 
 		function getActive(){
