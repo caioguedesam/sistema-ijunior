@@ -56,6 +56,62 @@
 			return $series;
 		}
 
+		function listarTop3Assistidos(){
+			$series = array();
+			try{
+				$c = $this->conectar();
+				$query = "select *, count(*) as qte from TVShow NATURAL JOIN User_TVShow WHERE rating != 0 GROUP BY idTVShow ORDER BY qte DESC LIMIT 3";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$serie = new Serie();
+					$serie->setIdTVShow($registro['idTVShow']);
+					$serie->setName($registro['name']);
+					$serie->setSeason($registro['season']);
+					$serie->setEpisodes($registro['episodes']);
+					$serie->setGenre($registro['genre']);
+					$serie->setExibitionYear($registro['exibitionYear']);
+					$serie->setCreator($registro['creator']);
+					$serie->setChannel($registro['channel']);
+					$serie->setStatus($registro['status']);
+					$serie->setActive($registro['active']);
+					array_push($series, $serie);
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $series;
+		}
+
+		function listarTop3WatchList(){
+			$series = array();
+			try{
+				$c = $this->conectar();
+				$query = "select *, count(*) as qte from TVShow NATURAL JOIN User_TVShow WHERE watchList = 1 GROUP BY idTVShow ORDER BY qte DESC LIMIT 3";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$serie = new Serie();
+					$serie->setIdTVShow($registro['idTVShow']);
+					$serie->setName($registro['name']);
+					$serie->setSeason($registro['season']);
+					$serie->setEpisodes($registro['episodes']);
+					$serie->setGenre($registro['genre']);
+					$serie->setExibitionYear($registro['exibitionYear']);
+					$serie->setCreator($registro['creator']);
+					$serie->setChannel($registro['channel']);
+					$serie->setStatus($registro['status']);
+					$serie->setActive($registro['active']);
+					array_push($series, $serie);
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $series;
+		}
+
 		function alterar($serie){
 			$situacao = TRUE;
 			$c = $this->conectar();

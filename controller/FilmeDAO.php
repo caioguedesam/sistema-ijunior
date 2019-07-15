@@ -87,6 +87,59 @@
 			return $filmes;
 		}
 
+		function listarTop3Assistidos(){
+			$filmes = array();
+			try{
+				$c = $this->conectar();
+				$query = "select *, count(*) as qte from Movie NATURAL JOIN User_Movies WHERE rating != 0 GROUP BY idMovie ORDER BY qte DESC LIMIT 3";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$filme = new Filme();
+					$filme->setIdMovie($registro['idMovie']);
+					$filme->setName($registro['name']);
+					$filme->setReleaseYear($registro['releaseYear']);
+					$filme->setRunningTime($registro['runningTime']);
+					$filme->setGenre($registro['genre']);
+					$filme->setDirector($registro['director']);
+					$filme->setStudio($registro['studio']);
+					$filme->setStatus($registro['active']);
+					array_push($filmes, $filme);
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $filmes;
+		}
+
+		function listarTop3WatchList(){
+			$filmes = array();
+			try{
+				$c = $this->conectar();
+				$query = "select *, count(*) as qte from Movie NATURAL JOIN User_Movies WHERE watchList = 1 GROUP BY idMovie ORDER BY qte DESC LIMIT 3";
+				$resultado = $c->query($query);
+				$c->close();
+				while($registro = mysqli_fetch_assoc($resultado)) {
+					$filme = new Filme();
+					$filme->setIdMovie($registro['idMovie']);
+					$filme->setName($registro['name']);
+					$filme->setReleaseYear($registro['releaseYear']);
+					$filme->setRunningTime($registro['runningTime']);
+					$filme->setGenre($registro['genre']);
+					$filme->setDirector($registro['director']);
+					$filme->setStudio($registro['studio']);
+					$filme->setStatus($registro['active']);
+					array_push($filmes, $filme);
+				}
+				$resultado->close();
+			}catch(Exception $ex){
+				echo $ex->getFile().' : '.$ex->getLine().' : '.$ex->getMessage();
+			}
+			return $filmes;
+		}
+
+
 		function buscarPorId($codigo){
 			$movie = new Filme();
 			try{

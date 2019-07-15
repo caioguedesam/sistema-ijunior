@@ -13,7 +13,22 @@
 <body>
 
 <!-- Inclui o header -->
-<?php include "includes/header.php"; ?>
+<?php include "includes/header.php"; 
+
+require_once 'model/Filme.php';
+require_once 'controller/FilmeDAO.php';
+require_once 'model/Serie.php';
+require_once 'controller/SerieDAO.php';
+
+$banco_filme = new filmeDAO();
+$filmes1 = $banco_filme->listarTop3Assistidos();
+$filmes2 = $banco_filme->listarTop3WatchList();
+
+$banco_serie = new serieDAO();
+$series1 = $banco_serie->listarTop3Assistidos();
+$series2 = $banco_serie->listarTop3WatchList();
+
+?>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
@@ -23,15 +38,29 @@
       <img src="assets/filmesicon.png">
       <h3>Filmes mais assistidos</h3>
       <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
+      <?php
+        foreach ($filmes1 as $filmes) {
+          if ($filmes->getStatus()) {
+        ?>
+        <tr>
+          <li><?php echo $filmes->getName()?></li>
+          <?php
+          }
+        }
+      ?>
       </ul>
       <h3>Filmes mais desejados</h3>
       <ul>
-        <li>O Exemplo dos Inocentes</li>
-        <li>Exemplos do Caribe</li>
-        <li>Exemplo nº 1</li>
+      <?php
+        foreach ($filmes2 as $filmes) {
+          if ($filmes->getStatus()) {
+        ?>
+        <tr>
+          <li><?php echo $filmes->getName()?></li>
+          <?php
+          }
+        }
+      ?>
       </ul>
       <br>
     </div>
@@ -41,19 +70,34 @@
       <img src="assets/seriesicon.png">
       <h3>Temporadas mais assistidas</h3>
       <ul>
-        <li>Exemplo Falls</li>
-        <li>Quebrando Exemplos</li>
-        <li>Exemplo's Anatomy</li>
+      <?php
+        foreach ($series1 as $serie) {
+          if ($serie->getActive()) {
+        ?>
+        <tr>
+          <li><?php echo $serie->getName()?></li>
+          <?php
+          }
+        }
+      ?>
       </ul>
       <h3>Temporadas mais desejadas</h3>
       <ul>
-        <li>Exemplo Falls</li>
-        <li>Quebrando Exemplos</li>
-        <li>Exemplo's Anatomy</li>
+      <?php
+        foreach ($series2 as $serie) {
+          if ($serie->getActive()) {
+        ?>
+        <tr>
+          <li><?php echo $serie->getName()?></li>
+          <?php
+          }
+        }
+      ?>
       </ul>
       <br>
     </div>
   </div>
+  <br><br>
 </div>
 
 <?php include "includes/footer.php"; ?>
