@@ -1,6 +1,6 @@
 <?php
-		require_once 'Serie.php';
-		require_once 'SerieDAO.php';
+		require_once '../modelSerie.php';
+		require_once '../controller/SerieDAO.php';
 
 	  $banco_serie = new SerieDAO();
 	  if(isset($_POST["idTVShow"])){
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <form action="SerieHelper.php?acao=alterar" method="post">
+    <form action="../controller/SerieHelper.php?acao=alterar" method="post">
                 
         <input type="number" name="idTVShow" id="idTVShow" value="<?php echo $serie->getIdTVShow() ?>" readonly ><br>
         <input type="text" name="name" value="<?php echo $serie->getName()?>" required><br>

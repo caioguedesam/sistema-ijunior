@@ -1,6 +1,6 @@
 <?php
-		require_once 'Filme.php';
-		require_once 'FilmeDAO.php';
+		require_once '../model/Filme.php';
+		require_once '../controller/FilmeDAO.php';
 
 	  $banco_movie = new FilmeDAO();
 	  if(isset($_POST["idMovie"])){
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <form action="FilmeHelper.php?acao=alterar" method="post">
+    <form action="../controller/FilmeHelper.php?acao=alterar" method="post">
                 
         <input type="number" name="idMovie" id="idMovie" value="<?php echo $movie->getIdMovie() ?>" readonly ><br>
         <input type="text" name="name" value="<?php echo $movie->getName()?>" required><br>

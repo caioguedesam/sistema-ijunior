@@ -1,5 +1,5 @@
 <?php
-    require_once 'User.php';
+    require_once '../model/User.php';
     require_once 'UserDAO.php';
 	$acao = $_GET["acao"];
 	
@@ -16,7 +16,7 @@
 			}else{
 				echo "<script>alert('Erro ao salvar o usuário!.');</script>";
 			}
-			echo "<script>location.href='usuarios.php';</script>";
+			echo "<script>location.href='../view/usuarios.php';</script>";
 		break;
 	}
 ?>

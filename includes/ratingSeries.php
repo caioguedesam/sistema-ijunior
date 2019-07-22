@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="SerieHelper.php?acao=avaliar" method="post">
+        <form action="../controller/SerieHelper.php?acao=avaliar" method="post">
             <input type='hidden' name="serie" id="serie" value='<?php echo $series->getIdTVShow();?>'/>
             <input type="text" name="user" id="user" placeholder="Nome do Usuário"><br><br>
             <input type="radio" name="grade" id="grade" value="1" checked>1<br>

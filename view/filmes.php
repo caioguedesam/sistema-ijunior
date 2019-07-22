@@ -1,6 +1,6 @@
 <?php
-require_once 'Filme.php';
-require_once 'FilmeDAO.php';
+require_once '../model/Filme.php';
+require_once '../controller/FilmeDAO.php';
 $banco_filme = new filmeDAO();
 $filmes = $banco_filme->listar();
 
@@ -13,7 +13,7 @@ $filmes = $banco_filme->listar();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="includes/style.css">
+  <link rel="stylesheet" href="../includes/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -21,13 +21,13 @@ $filmes = $banco_filme->listar();
 <body>
 
 <!-- Inclui o header -->
-<?php include "includes/header.php"; ?>
+<?php include "../includes/header.php"; ?>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col">
       <br>
-      <img src="assets/filmesicon.png">
+      <img src="../assets/filmesicon.png">
       <h2>Filmes</h2>
       <br>
       <!--Tabela de Filmes-->
@@ -59,19 +59,19 @@ $filmes = $banco_filme->listar();
             <td><?php echo $filmes->getStudio()?></td>
             <td>
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalEdit<?php echo $filmes->getIdMovie();?>">Editar</button>
-                <?php include "includes/modalEditMovie.php" ?>
+                <?php include "../includes/modalEditMovie.php" ?>
             </td>
             <td>
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalRate<?php echo $filmes->getIdMovie();?>">Avaliar</button>
-                <?php include "includes/ratingMovie.php" ?>
+                <?php include "../includes/ratingMovie.php" ?>
             </td>
             <td>
                 <button type="submit" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalDelete<?php echo $filmes->getIdMovie();?>">Excluir</button>
-                <?php include "includes/modalDeleteMovie.php" ?>
+                <?php include "../includes/modalDeleteMovie.php" ?>
             </td>
             <td>
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatchList<?php echo $filmes->getIdMovie();?>">Desejo Assistir</button>
-                <?php include "includes/watchListMovie.php" ?>
+                <?php include "../includes/watchListMovie.php" ?>
             </td>
           </tr>
           <?php
@@ -85,7 +85,7 @@ $filmes = $banco_filme->listar();
   </div>
 </div>
 
-<?php include "includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
 
 <div class="bg-modal"></div>
 

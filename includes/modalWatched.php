@@ -10,7 +10,7 @@
       <div class="modal-body">
         
         
-        <form action="UserHelper.php?acao=listWatched" method="post">
+        <form action="../controller/UserHelper.php?acao=listWatched" method="post">
         <h5 class="modal-title">Filmes</h5>
             <!--Tabela de Filmes-->
             <table class="table table-hover">
@@ -24,12 +24,12 @@
               </thead>
               <tbody>
                 <?php
-                require_once 'Filme.php';
-                require_once 'FilmeDAO.php';
-                require_once 'User.php';
-                require_once 'UserDAO.php';
-                require_once 'Serie.php';
-                require_once 'SerieDAO.php';
+                require_once '../model/Filme.php';
+                require_once '../controller/FilmeDAO.php';
+                require_once '../model/User.php';
+                require_once '../controller/UserDAO.php';
+                require_once '../model/Serie.php';
+                require_once '../controller/SerieDAO.php';
 
                 $banco_filme = new filmeDAO();
                 $filmes = $banco_filme->listarWatched($users);

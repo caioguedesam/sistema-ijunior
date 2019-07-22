@@ -1,6 +1,6 @@
 <?php
-		require_once 'User.php';
-		require_once 'UserDAO.php';
+		require_once '../model/User.php';
+		require_once '../controller/UserDAO.php';
 
 	  $banco_user = new UserDAO();
 	  if(isset($_POST["idUser"])){
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <form action="UserHelper.php?acao=alterar" method="post">
+    <form action="../controller/UserHelper.php?acao=alterar" method="post">
                 
         <input type="number" name="idUser" id="idUser" value="<?php echo $user->getIdUser() ?>" readonly ><br>
         <input type="text" name="name" value="<?php echo $user->getName()?>" required><br>

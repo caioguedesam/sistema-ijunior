@@ -1,7 +1,7 @@
 <?php
-    require_once 'Filme.php';
+    require_once '../model/Filme.php';
     require_once 'FilmeDAO.php';
-	require_once 'User.php';
+	require_once '../model/User.php';
 	require_once 'UserDAO.php';
 	$acao = $_GET["acao"];
 	
@@ -22,7 +22,7 @@
 			}else{
 				echo "<script>alert('Erro ao salvar o Filme!');</script>";
 			}
-			echo "<script>location.href='registro.php';</script>";
+			echo "<script>location.href='../view/registro.php';</script>";
 		break;
 
 		case 'alterar':
@@ -43,7 +43,7 @@
 			}else{
 				echo "<script>alert('Erro ao alterar o Filme!');</script>";
 			}
-            echo "<script>location.href='filmes.php';</script>";
+            echo "<script>location.href='../view/filmes.php';</script>";
         break;
 
 		case 'excluir':
@@ -56,7 +56,7 @@
 			}else{
 				echo "<script>alert('Erro ao excluir o Filme.');</script>";
 			}
-			echo "<script>location.href='filmes.php';</script>";
+			echo "<script>location.href='../view/filmes.php';</script>";
 		break;
 		case 'avaliar':
 			$banco_movie = new FilmeDAO();
@@ -70,7 +70,7 @@
 			}else{
 				echo "<script>alert('Erro ao avaliar o Filme!');</script>";
 			}
-            echo "<script>location.href='filmes.php';</script>";
+            echo "<script>location.href='../view/filmes.php';</script>";
 		break;
 
 		case 'watchList':
@@ -84,7 +84,7 @@
 			}else{
 				echo "<script>alert('Erro ao adicionar o Filme!');</script>";
 			}
-            echo "<script>location.href='filmes.php';</script>";
+            echo "<script>location.href='../view/filmes.php';</script>";
 		break;
 
 	}

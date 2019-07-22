@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="FilmeHelper.php?acao=watchList" method="post">
+        <form action="../controller/FilmeHelper.php?acao=watchList" method="post">
             <input type='hidden' name='movie' id="movie" value='<?php echo $filmes->getIdMovie();?>'/>
             <input type="text" name="user" id="user" placeholder="Nome do Usuário"><br><br>
 

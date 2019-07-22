@@ -1,6 +1,6 @@
 <?php
-require_once 'User.php';
-require_once 'UserDAO.php';
+require_once '../model/User.php';
+require_once '../controller/UserDAO.php';
 $banco_user = new UserDAO();
 $users = $banco_user->listar();
 
@@ -13,7 +13,7 @@ $users = $banco_user->listar();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="includes/style.css">
+  <link rel="stylesheet" href="../includes/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -21,13 +21,13 @@ $users = $banco_user->listar();
 <body>
 
 <!-- Inclui o header -->
-<?php include "includes/header.php"; ?>
+<?php include "../includes/header.php"; ?>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col">
       <br>
-      <img src="assets/TVNews.png">
+      <img src="../assets/TVNews.png">
       <h2>Usuários</h2>
       <br>
       <!--Botão 1-->
@@ -43,7 +43,7 @@ $users = $banco_user->listar();
               </button>
             </div>
             <div class="modal-body">
-              <form action="UserHelper.php?acao=novo" method="post">
+              <form action="../controller/UserHelper.php?acao=novo" method="post">
                 
                 <input type="text" name="name" placeholder="Nome"><br>
 
@@ -76,11 +76,11 @@ $users = $banco_user->listar();
             <td><?php echo $users->getName()?></td>
             <td>
                 <button type="button" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatched<?php echo $users->getIdUser();?>">Assistidos</button>
-                <?php include "includes/modalWatched.php";?>
+                <?php include "../includes/modalWatched.php";?>
             </td>
             <td>
                 <button type="submit" class="btn btn-outline-danger" id="modalbtn" data-toggle="modal" data-target="#modalWatchList<?php echo $users->getIdUser();?>">Desejados</button>
-                <?php include "includes/modalWatchList.php";?>
+                <?php include "../includes/modalWatchList.php";?>
             </td>
           </tr>
           <?php
@@ -94,7 +94,7 @@ $users = $banco_user->listar();
   </div>
 </div>
 
-<?php include "includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
 
 <div class="bg-modal"></div>
 
